@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4u4-5t-SZS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Filter View Controller-->
+        <scene sceneID="Vxc-q2-LmK">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="4u4-5t-SZS" customClass="FilterViewController" customModule="PhotoFilter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KpM-ob-pTY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90v-Dq-nWF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="mainColor"/>
+                        <constraints>
+                            <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="90v-Dq-nWF" secondAttribute="trailing" id="08W-YO-Rd7"/>
+                            <constraint firstItem="6il-wC-KUR" firstAttribute="bottom" secondItem="90v-Dq-nWF" secondAttribute="bottom" id="K82-la-oh7"/>
+                            <constraint firstItem="90v-Dq-nWF" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="ZxW-gu-P61"/>
+                            <constraint firstItem="90v-Dq-nWF" firstAttribute="top" secondItem="6il-wC-KUR" secondAttribute="top" id="qVv-rR-RXu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6il-wC-KUR"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="90v-Dq-nWF" id="xcp-v7-BQa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6L6-NW-ePW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="161" y="89"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="mainColor">
+            <color red="0.41960784313725491" green="0.27843137254901962" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
