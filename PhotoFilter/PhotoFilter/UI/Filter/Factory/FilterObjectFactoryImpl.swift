@@ -18,6 +18,9 @@ class FilterObjectFactoryImpl: NSObject, FilterObjectFactory {
         array.append(FilterCollectionViewCellObject(type: .contrast))
         array.append(FilterCollectionViewCellObject(type: .invert))
         array.append(FilterCollectionViewCellObject(type: .monochrome))
+        array.append(FilterCollectionViewCellObject(type: .posterize))
+        array.append(FilterCollectionViewCellObject(type: .mono))
+        array.append(FilterCollectionViewCellObject(type: .falseColor))
         return array
     }
     

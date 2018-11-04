@@ -36,6 +36,24 @@ class FilterBuilderImpl: NSObject, FilterBuilder {
                 filter.setValue(inputImage, forKey: "inputImage")
                 return filter
             }
+        case .posterize:
+            if let filter = CIFilter.init(name: "CIColorPosterize") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
+        case .falseColor:
+            if let filter = CIFilter.init(name: "CIFalseColor") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
+        case .mono:
+            if let filter = CIFilter.init(name: "CIPhotoEffectMono") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
         }
         return nil
     }
