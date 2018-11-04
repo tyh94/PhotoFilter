@@ -15,5 +15,7 @@ protocol FilterViewOutput: AnyObject {
     func configure(image: UIImage)
     
     func didSelect(object: FilterCollectionViewCellObject)
+    
+    func shareCurrentImage()
 
 }

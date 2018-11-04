@@ -23,12 +23,20 @@ class FilterViewController: UIViewController, FilterViewInput, ListAdapterDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("FILTER_NAVIGATION_TITLE", comment: "")
+        configureNavigationBar()
         configureCollectionView()
         viewOutput.moduleWasLoaded()
     }
     
     // MARK: Private
+    
+    private func configureNavigationBar() {
+        title = NSLocalizedString("FILTER_NAVIGATION_TITLE", comment: "")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(shareTapped))
+    }
     
     private func configureCollectionView() {
         let idenitfier = String(describing: FilterCollectionViewCell.self)
@@ -38,6 +46,10 @@ class FilterViewController: UIViewController, FilterViewInput, ListAdapterDataSo
                                 forCellWithReuseIdentifier: idenitfier)
         adapter.collectionView = collectionView
         adapter.dataSource = self
+    }
+    
+    @objc private func shareTapped() {
+        viewOutput.shareCurrentImage()
     }
     
     // MARK: FilterViewInput

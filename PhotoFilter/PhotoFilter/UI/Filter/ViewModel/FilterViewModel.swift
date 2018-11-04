@@ -13,6 +13,7 @@ class FilterViewModel: NSObject, FilterViewOutput {
     weak var viewInput: FilterViewInput!
     var factory: FilterObjectFactory!
     var builder: FilterBuilder!
+    var shareHelper: SharingHelper!
     
     var originalImage: UIImage!
     var filteredImage: UIImage!
@@ -42,6 +43,10 @@ class FilterViewModel: NSObject, FilterViewOutput {
         } else {
             viewInput.setup(image: originalImage)
         }
+    }
+    
+    func shareCurrentImage() {
+        shareHelper.share(image: filteredImage)
     }
     
     func createFilteredImage(context: CIContext,

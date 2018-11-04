@@ -29,6 +29,8 @@ class FilterAssembly: Assembly {
             model.viewInput = controller
             model.factory = r.resolve(FilterObjectFactory.self)
             model.builder = assembler.resolver.resolve(FilterBuilder.self)
+            model.shareHelper = assembler.resolver.resolve(SharingHelper.self,
+                                                           argument: controller as UIViewController)
             return model
         }
         
