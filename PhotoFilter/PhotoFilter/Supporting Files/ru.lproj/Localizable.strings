@@ -8,3 +8,6 @@
 
 "MAIN_NAVIGATION_TITLE" = "Добавьте фото";
 "FILTER_NAVIGATION_TITLE" = "Добавьте фильтры";
+
+"OPEN_CAMERA_BUTTON_TITLE" = "Открыть камеру";
+"OPEN_PHOTO_LIBRARY_BUTTON_TITLE" = "Открыть фотогалерею";

@@ -11,6 +11,7 @@
 		490B94DB218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94DA218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift */; };
 		490B94DE218F3AFD00E03FD4 /* AppDelegateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94DD218F3AFD00E03FD4 /* AppDelegateAssembly.swift */; };
 		490B94E4218F3D4B00E03FD4 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94E3218F3D4B00E03FD4 /* BaseButton.swift */; };
+		490B94E6218F401300E03FD4 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94E5218F401300E03FD4 /* FrameView.swift */; };
 		4911226C218EAC04003683FD /* FilterViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911226B218EAC04003683FD /* FilterViewOutput.swift */; };
 		4911226E218EAC62003683FD /* FilterViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911226D218EAC62003683FD /* FilterViewInput.swift */; };
 		49112272218EAFAF003683FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49112274218EAFAF003683FD /* Localizable.strings */; };
@@ -63,6 +64,7 @@
 		490B94DA218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceConfiguratorImpl.swift; sourceTree = "<group>"; };
 		490B94DD218F3AFD00E03FD4 /* AppDelegateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAssembly.swift; sourceTree = "<group>"; };
 		490B94E3218F3D4B00E03FD4 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		490B94E5218F401300E03FD4 /* FrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
 		4911226B218EAC04003683FD /* FilterViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewOutput.swift; sourceTree = "<group>"; };
 		4911226D218EAC62003683FD /* FilterViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewInput.swift; sourceTree = "<group>"; };
 		49112273218EAFAF003683FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				49112285218EBB10003683FD /* Factory */,
 				49155DC0218DFF2C005AA431 /* ViewController */,
 				49155DC3218DFF45005AA431 /* ViewModel */,
+				490B94E5218F401300E03FD4 /* FrameView.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				4911227B218EB738003683FD /* FilterCollectionViewCell.swift in Sources */,
 				490B94DE218F3AFD00E03FD4 /* AppDelegateAssembly.swift in Sources */,
 				49112288218EBB10003683FD /* FilterObjectFactoryImpl.swift in Sources */,
+				490B94E6218F401300E03FD4 /* FrameView.swift in Sources */,
 				49112289218EBB10003683FD /* FilterObjectFactory.swift in Sources */,
 				490B94E4218F3D4B00E03FD4 /* BaseButton.swift in Sources */,
 				49155DBF218DFF24005AA431 /* FilterViewController.swift in Sources */,

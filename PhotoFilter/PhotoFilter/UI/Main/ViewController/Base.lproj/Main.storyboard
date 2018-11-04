@@ -81,6 +81,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qh0-VB-A5v"/>
+                    <connections>
+                        <outlet property="openCameraButton" destination="ypz-Ux-Be4" id="Hbr-vg-khi"/>
+                        <outlet property="openGalleryButton" destination="hOs-Vd-9PD" id="Icx-0t-pRU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

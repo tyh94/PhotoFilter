@@ -8,3 +8,6 @@
 
 "MAIN_NAVIGATION_TITLE" = "Add photo";
 "FILTER_NAVIGATION_TITLE" = "Add filters";
+
+"OPEN_CAMERA_BUTTON_TITLE" = "Open camera";
+"OPEN_PHOTO_LIBRARY_BUTTON_TITLE" = "Open photo library";

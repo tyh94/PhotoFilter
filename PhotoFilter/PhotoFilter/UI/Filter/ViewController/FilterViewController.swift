@@ -39,7 +39,7 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     }
     
     private func configureCollectionView() {
-        flowLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
+        flowLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 10)
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: 150, height: 150)
         let idenitfier = String(describing: FilterCollectionViewCell.self)

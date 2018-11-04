@@ -34,14 +34,24 @@
                                             <outlet property="delegate" destination="4u4-5t-SZS" id="Wcx-rl-Iqb"/>
                                         </connections>
                                     </collectionView>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kxj-Lf-eYK" customClass="FrameView" customModule="PhotoFilter" customModuleProvider="target">
+                                        <rect key="frame" x="107.5" y="-5" width="160" height="160"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Kxj-Lf-eYK" secondAttribute="height" multiplier="1:1" id="gQG-Gm-0pF"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="backgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="eNB-0j-7vP" firstAttribute="leading" secondItem="GgE-YP-D2U" secondAttribute="leading" id="0Nq-ly-psz"/>
+                                    <constraint firstItem="Kxj-Lf-eYK" firstAttribute="top" secondItem="eNB-0j-7vP" secondAttribute="top" constant="-5" id="5dD-Nx-pas"/>
                                     <constraint firstItem="eNB-0j-7vP" firstAttribute="top" secondItem="GgE-YP-D2U" secondAttribute="top" id="8xy-Ja-LFi"/>
+                                    <constraint firstItem="Kxj-Lf-eYK" firstAttribute="centerX" secondItem="eNB-0j-7vP" secondAttribute="centerX" id="Zv1-XJ-Z5l"/>
                                     <constraint firstAttribute="height" constant="150" id="bZ4-Mq-KgS"/>
                                     <constraint firstAttribute="trailing" secondItem="eNB-0j-7vP" secondAttribute="trailing" id="cXY-iB-6wc"/>
                                     <constraint firstAttribute="bottom" secondItem="eNB-0j-7vP" secondAttribute="bottom" id="d46-iV-AaX"/>
+                                    <constraint firstItem="Kxj-Lf-eYK" firstAttribute="bottom" secondItem="eNB-0j-7vP" secondAttribute="bottom" constant="5" id="f9J-0C-Ebt"/>
                                 </constraints>
                             </view>
                         </subviews>
