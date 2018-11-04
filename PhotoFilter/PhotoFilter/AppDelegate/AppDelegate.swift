@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private var appearanceConfigurator: AppearanceConfigurator!
+    
+    override init() {
+        super.init()
+        let assembler = Assembler([AppDelegateAssembly()])
+        appearanceConfigurator = assembler.resolver.resolve(AppearanceConfigurator.self)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

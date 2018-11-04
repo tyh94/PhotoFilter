@@ -26,7 +26,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-0j-7vP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                                        <color key="backgroundColor" name="mainColor"/>
+                                        <color key="backgroundColor" name="backgroundColor"/>
                                         <collectionViewLayout key="collectionViewLayout" id="ftQ-e8-8kN" customClass="UPCarouselFlowLayout" customModule="UPCarouselFlowLayout"/>
                                         <cells/>
                                         <connections>
@@ -35,7 +35,7 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" name="mainColor"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="eNB-0j-7vP" firstAttribute="leading" secondItem="GgE-YP-D2U" secondAttribute="leading" id="0Nq-ly-psz"/>
                                     <constraint firstItem="eNB-0j-7vP" firstAttribute="top" secondItem="GgE-YP-D2U" secondAttribute="top" id="8xy-Ja-LFi"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="mainColor"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="90v-Dq-nWF" secondAttribute="trailing" id="08W-YO-Rd7"/>
                             <constraint firstItem="GgE-YP-D2U" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="Ncy-JO-P6M"/>
@@ -70,8 +70,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="mainColor">
-            <color red="0.41960784313725491" green="0.27843137254901962" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="backgroundColor">
+            <color red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

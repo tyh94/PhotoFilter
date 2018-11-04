@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490B94D9218F3A9100E03FD4 /* AppearanceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94D8218F3A9100E03FD4 /* AppearanceConfigurator.swift */; };
+		490B94DB218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94DA218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift */; };
+		490B94DE218F3AFD00E03FD4 /* AppDelegateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94DD218F3AFD00E03FD4 /* AppDelegateAssembly.swift */; };
+		490B94E4218F3D4B00E03FD4 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B94E3218F3D4B00E03FD4 /* BaseButton.swift */; };
 		4911226C218EAC04003683FD /* FilterViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911226B218EAC04003683FD /* FilterViewOutput.swift */; };
 		4911226E218EAC62003683FD /* FilterViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911226D218EAC62003683FD /* FilterViewInput.swift */; };
 		49112272218EAFAF003683FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49112274218EAFAF003683FD /* Localizable.strings */; };
@@ -55,6 +59,10 @@
 
 /* Begin PBXFileReference section */
 		185E81F2778D73F67F0170C1 /* Pods-PhotoFilterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoFilterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoFilterTests/Pods-PhotoFilterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		490B94D8218F3A9100E03FD4 /* AppearanceConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceConfigurator.swift; sourceTree = "<group>"; };
+		490B94DA218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceConfiguratorImpl.swift; sourceTree = "<group>"; };
+		490B94DD218F3AFD00E03FD4 /* AppDelegateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateAssembly.swift; sourceTree = "<group>"; };
+		490B94E3218F3D4B00E03FD4 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		4911226B218EAC04003683FD /* FilterViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewOutput.swift; sourceTree = "<group>"; };
 		4911226D218EAC62003683FD /* FilterViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewInput.swift; sourceTree = "<group>"; };
 		49112273218EAFAF003683FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -129,6 +137,32 @@
 				7BA813422184E04A8AA31239 /* Pods-PhotoFilterTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		490B94D7218F3A8500E03FD4 /* AppearanceConfigurator */ = {
+			isa = PBXGroup;
+			children = (
+				490B94D8218F3A9100E03FD4 /* AppearanceConfigurator.swift */,
+				490B94DA218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift */,
+			);
+			path = AppearanceConfigurator;
+			sourceTree = "<group>";
+		};
+		490B94DC218F3AF500E03FD4 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				49155D81218DF2E2005AA431 /* AppDelegate.swift */,
+				490B94DD218F3AFD00E03FD4 /* AppDelegateAssembly.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		490B94E2218F3D4200E03FD4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				490B94E3218F3D4B00E03FD4 /* BaseButton.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		4911226F218EAF49003683FD /* Supporting Files */ = {
@@ -208,14 +242,14 @@
 		49155D80218DF2E2005AA431 /* PhotoFilter */ = {
 			isa = PBXGroup;
 			children = (
-				49155D81218DF2E2005AA431 /* AppDelegate.swift */,
+				490B94E2218F3D4200E03FD4 /* Base */,
+				490B94DC218F3AF500E03FD4 /* AppDelegate */,
 				49155DB2218DF6C7005AA431 /* Assembly */,
 				49155D88218DF2E4005AA431 /* Assets.xcassets */,
 				49C82718218EDB0D008B1172 /* Ext */,
 				49155DB5218DF6DA005AA431 /* Helpers */,
 				49155D8D218DF2E4005AA431 /* Info.plist */,
 				49155D8A218DF2E4005AA431 /* LaunchScreen.storyboard */,
-				49155D85218DF2E2005AA431 /* Main.storyboard */,
 				4911226F218EAF49003683FD /* Supporting Files */,
 				49112277218EB669003683FD /* UI */,
 			);
@@ -253,6 +287,7 @@
 		49155DAE218DF496005AA431 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				49155D85218DF2E2005AA431 /* Main.storyboard */,
 				49155D83218DF2E2005AA431 /* MainViewController.swift */,
 				49155DA7218DF3F4005AA431 /* MainViewOutput.swift */,
 				49155DAB218DF479005AA431 /* MainViewInput.swift */,
@@ -280,6 +315,7 @@
 		49155DB5218DF6DA005AA431 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				490B94D7218F3A8500E03FD4 /* AppearanceConfigurator */,
 				49112280218EB77E003683FD /* FilterBuilder */,
 				4911228A218EBD41003683FD /* ImagePicker */,
 				49C82717218EC84D008B1172 /* Sharing */,
@@ -543,12 +579,16 @@
 				49155D84218DF2E2005AA431 /* MainViewController.swift in Sources */,
 				49155DB4218DF6D5005AA431 /* HelperAssembly.swift in Sources */,
 				49C82714218EC83E008B1172 /* SharingHelper.swift in Sources */,
+				490B94DB218F3A9900E03FD4 /* AppearanceConfiguratorImpl.swift in Sources */,
+				490B94D9218F3A9100E03FD4 /* AppearanceConfigurator.swift in Sources */,
 				49155DB7218DF6E7005AA431 /* ImagePickerHelper.swift in Sources */,
 				49155DAC218DF479005AA431 /* MainViewInput.swift in Sources */,
 				49155DA8218DF3F4005AA431 /* MainViewOutput.swift in Sources */,
 				4911227B218EB738003683FD /* FilterCollectionViewCell.swift in Sources */,
+				490B94DE218F3AFD00E03FD4 /* AppDelegateAssembly.swift in Sources */,
 				49112288218EBB10003683FD /* FilterObjectFactoryImpl.swift in Sources */,
 				49112289218EBB10003683FD /* FilterObjectFactory.swift in Sources */,
+				490B94E4218F3D4B00E03FD4 /* BaseButton.swift in Sources */,
 				49155DBF218DFF24005AA431 /* FilterViewController.swift in Sources */,
 				49112282218EB78A003683FD /* FilterBuilder.swift in Sources */,
 				49155DA4218DF3BF005AA431 /* MainAssembly.swift in Sources */,
