@@ -32,7 +32,8 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     
     private func configureNavigationBar() {
         title = NSLocalizedString("FILTER_NAVIGATION_TITLE", comment: "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("SHARE_BUTTON_TITLE",
+                                                                                     comment: ""),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(shareTapped))
@@ -76,9 +77,12 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FilterCollectionViewCell.self), for: indexPath) as! FilterCollectionViewCell
-        cell.bindViewModel(cellObjects[indexPath.item])
-        viewOutput.getImage(index: indexPath.item) { (image) -> (Void) in
-            cell.imageView.image = image
+        let cellObject = cellObjects[indexPath.item]
+        cell.bindViewModel(cellObject)
+        if (cellObject.image == nil) {
+            viewOutput.getImage(index: indexPath.item) { (image) -> (Void) in
+                cell.imageView.image = image
+            }
         }
         return cell
     }
@@ -87,8 +91,11 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
                         willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
         if let cell = cell as? FilterCollectionViewCell {
-            viewOutput.getImage(index: indexPath.item) { (image) -> (Void) in
-                cell.imageView.image = image
+            let cellObject = cellObjects[indexPath.item]
+            if (cellObject.image == nil) {
+                viewOutput.getImage(index: indexPath.item) { (image) -> (Void) in
+                    cell.imageView.image = image
+                }
             }
         }
     }

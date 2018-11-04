@@ -12,7 +12,7 @@ import SwinjectStoryboard
 
 class MainRouter: NSObject {
 
-    var controller: UIViewController!
+    weak var controller: UIViewController!
     var filterAssembly: FilterAssembly!
     
     func openFilterModule(image: UIImage) {

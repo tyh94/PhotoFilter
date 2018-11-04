@@ -10,7 +10,7 @@ import UIKit
 
 class SharingHelperImpl: NSObject, SharingHelper {
 
-    var controller: UIViewController!
+    weak var controller: UIViewController!
     
     // MARK: SharingHelper
     
