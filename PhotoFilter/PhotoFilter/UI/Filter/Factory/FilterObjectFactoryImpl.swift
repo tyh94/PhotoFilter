@@ -21,6 +21,11 @@ class FilterObjectFactoryImpl: NSObject, FilterObjectFactory {
         array.append(FilterCollectionViewCellObject(type: .posterize))
         array.append(FilterCollectionViewCellObject(type: .mono))
         array.append(FilterCollectionViewCellObject(type: .falseColor))
+        array.append(FilterCollectionViewCellObject(type: .maximumComponent))
+        array.append(FilterCollectionViewCellObject(type: .minimumComponent))
+        array.append(FilterCollectionViewCellObject(type: .transfer))
+        array.append(FilterCollectionViewCellObject(type: .sepia))
+        array.append(FilterCollectionViewCellObject(type: .vignette))
         return array
     }
     

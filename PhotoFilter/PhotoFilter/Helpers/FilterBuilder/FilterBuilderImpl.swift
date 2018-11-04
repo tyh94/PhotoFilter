@@ -54,6 +54,39 @@ class FilterBuilderImpl: NSObject, FilterBuilder {
                 filter.setValue(inputImage, forKey: "inputImage")
                 return filter
             }
+        case .maximumComponent:
+            if let filter = CIFilter.init(name: "CIMaximumComponent") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
+        case .minimumComponent:
+            if let filter = CIFilter.init(name: "CIMinimumComponent") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
+        case .transfer:
+            if let filter = CIFilter.init(name: "CIPhotoEffectTransfer") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
+        case .sepia:
+            if let filter = CIFilter.init(name: "CISepiaTone") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                filter.setValue(1.5, forKey: "inputIntensity")
+                return filter
+            }
+        case .vignette:
+            if let filter = CIFilter.init(name: "CIVignette") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                filter.setValue(5.0, forKey: "inputIntensity")
+                filter.setValue(15.0, forKey: "inputRadius")
+                return filter
+            }
         }
         return nil
     }

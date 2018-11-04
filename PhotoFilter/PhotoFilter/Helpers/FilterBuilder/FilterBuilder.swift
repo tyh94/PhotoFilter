@@ -16,6 +16,11 @@ enum FilterType {
     case posterize
     case falseColor
     case mono
+    case maximumComponent
+    case minimumComponent
+    case transfer
+    case sepia
+    case vignette
 }
 
 protocol FilterBuilder {

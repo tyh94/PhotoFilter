@@ -103,8 +103,13 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     // MARK: UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let object = cellObjects[indexPath.item]
-        viewOutput.didSelect(object: object)
+        if indexPath.item < cellObjects.count && indexPath.item > 0 {
+            let object = cellObjects[indexPath.item]
+            viewOutput.didSelect(object: object)
+            collectionView.scrollToItem(at: indexPath,
+                                        at: UICollectionView.ScrollPosition.centeredHorizontally,
+                                        animated: true)
+        }
     }
     
     // MARK: UIScrollViewDelegate
