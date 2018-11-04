@@ -12,6 +12,7 @@ enum FilterType {
     case no
     case contrast
     case invert
+    case monochrome
 }
 
 protocol FilterBuilder {

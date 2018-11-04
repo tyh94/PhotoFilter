@@ -29,6 +29,12 @@ class FilterBuilderImpl: NSObject, FilterBuilder {
                 filter.setValue(inputImage, forKey: "inputImage")
                 return filter
             }
+        case .monochrome:
+            if let filter = CIFilter.init(name: "CIColorMonochrome") {
+                let inputImage = CIImage.init(image: inputImage)
+                filter.setValue(inputImage, forKey: "inputImage")
+                return filter
+            }
         }
         return nil
     }

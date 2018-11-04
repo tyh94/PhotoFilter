@@ -31,6 +31,12 @@ class FilterObjectFactoryImpl: NSObject, FilterObjectFactory {
                                                     image: createFilteredImage(context: context,
                                                                                filter: invertFilter!)!))
         
+        let monochromeFilter = builder.buildFilter(type: .monochrome,
+                                               inputImage: image)
+        array.append(FilterCollectionViewCellObject(type: .monochrome,
+                                                    image: createFilteredImage(context: context,
+                                                                               filter: monochromeFilter!)!))
+        
         return array
     }
     
