@@ -14,9 +14,11 @@ class SharingHelperImpl: NSObject, SharingHelper {
     
     // MARK: SharingHelper
     
-    func share(image: UIImage) {
+    func share(image: UIImage,
+               barButtonItem: UIBarButtonItem) {
         let activity = UIActivityViewController(activityItems: [image],
                                                 applicationActivities: nil)
+        activity.popoverPresentationController?.barButtonItem = barButtonItem
         controller.present(activity,
                            animated: true,
                            completion: nil)

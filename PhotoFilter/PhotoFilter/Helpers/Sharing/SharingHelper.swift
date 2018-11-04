@@ -10,6 +10,7 @@ import UIKit
 
 protocol SharingHelper {
 
-    func share(image: UIImage)
+    func share(image: UIImage,
+               barButtonItem: UIBarButtonItem)
     
 }

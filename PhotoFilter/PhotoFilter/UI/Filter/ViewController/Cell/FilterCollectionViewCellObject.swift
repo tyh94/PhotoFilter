@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import IGListKit
 
-class FilterCollectionViewCellObject: NSObject, ListDiffable {
+class FilterCollectionViewCellObject: NSObject {
 
     var type: FilterType!
     var image: UIImage!
@@ -21,15 +20,4 @@ class FilterCollectionViewCellObject: NSObject, ListDiffable {
         self.image = image
     }
     
-    // MARK: ListDiffable
-    func diffIdentifier() -> NSObjectProtocol {
-        return hash as NSObjectProtocol
-    }
-    
-    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-        if let object = object as? FilterCollectionViewCellObject {
-            return type == object.type
-        }
-        return false
-    }
 }

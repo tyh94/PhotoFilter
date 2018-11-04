@@ -19,21 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90v-Dq-nWF">
-                                <rect key="frame" x="0.0" y="36" width="375" height="481"/>
+                                <rect key="frame" x="0.0" y="36" width="375" height="465"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-YP-D2U">
                                 <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-0j-7vP">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-0j-7vP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                         <color key="backgroundColor" name="mainColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZXD-Vj-2Ou">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
+                                        <collectionViewLayout key="collectionViewLayout" id="ftQ-e8-8kN" customClass="UPCarouselFlowLayout" customModule="UPCarouselFlowLayout"/>
                                         <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="4u4-5t-SZS" id="V4t-gm-isC"/>
+                                            <outlet property="delegate" destination="4u4-5t-SZS" id="Wcx-rl-Iqb"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" name="mainColor"/>
@@ -50,7 +49,7 @@
                         <constraints>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="90v-Dq-nWF" secondAttribute="trailing" id="08W-YO-Rd7"/>
                             <constraint firstItem="GgE-YP-D2U" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="Ncy-JO-P6M"/>
-                            <constraint firstItem="GgE-YP-D2U" firstAttribute="top" secondItem="90v-Dq-nWF" secondAttribute="bottom" id="Udm-GN-wd1"/>
+                            <constraint firstItem="GgE-YP-D2U" firstAttribute="top" secondItem="90v-Dq-nWF" secondAttribute="bottom" constant="16" id="Udm-GN-wd1"/>
                             <constraint firstItem="90v-Dq-nWF" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="ZxW-gu-P61"/>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="bottom" secondItem="GgE-YP-D2U" secondAttribute="bottom" id="aHx-oy-PjV"/>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="GgE-YP-D2U" secondAttribute="trailing" id="lIY-rE-3OC"/>
@@ -61,6 +60,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="eNB-0j-7vP" id="v32-uo-tsO"/>
+                        <outlet property="flowLayout" destination="ftQ-e8-8kN" id="ouE-aC-oQQ"/>
                         <outlet property="imageView" destination="90v-Dq-nWF" id="xcp-v7-BQa"/>
                     </connections>
                 </viewController>

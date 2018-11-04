@@ -16,6 +16,6 @@ protocol FilterViewOutput: AnyObject {
     
     func didSelect(object: FilterCollectionViewCellObject)
     
-    func shareCurrentImage()
+    func shareCurrentImage(barButtonItem: UIBarButtonItem)
 
 }

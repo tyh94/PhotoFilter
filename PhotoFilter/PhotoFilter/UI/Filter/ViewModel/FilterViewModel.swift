@@ -21,8 +21,8 @@ class FilterViewModel: NSObject, FilterViewOutput {
     // MARK: FilterViewOutput
     
     func configure(image: UIImage) {
-        originalImage = image
-        filteredImage = image
+        originalImage = image.fixOrientation()
+        filteredImage = image.fixOrientation()
     }
     
     func moduleWasLoaded() {
@@ -45,8 +45,9 @@ class FilterViewModel: NSObject, FilterViewOutput {
         }
     }
     
-    func shareCurrentImage() {
-        shareHelper.share(image: filteredImage)
+    func shareCurrentImage(barButtonItem: UIBarButtonItem) {
+        shareHelper.share(image: filteredImage,
+                          barButtonItem: barButtonItem)
     }
     
     func createFilteredImage(context: CIContext,
@@ -59,4 +60,5 @@ class FilterViewModel: NSObject, FilterViewOutput {
         }
         return nil
     }
+    
 }

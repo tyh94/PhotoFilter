@@ -6,7 +6,7 @@ target 'PhotoFilter' do
   use_frameworks!
   pod 'Swinject'
   pod 'SwinjectStoryboard'
-  pod 'IGListKit'
+  pod 'UPCarouselFlowLayout'
 
   # Pods for PhotoFilter
 

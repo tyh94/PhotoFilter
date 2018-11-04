@@ -7,23 +7,18 @@
 //
 
 import UIKit
-import IGListKit
 
-class FilterCollectionViewCell: UICollectionViewCell, ListBindable {
+class FilterCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    override var isSelected: Bool {
-        didSet {
-            alpha = isSelected ? 0.5 : 1.0
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.cornerRadius = 12.0
     }
     
-    // MARK: ListBindable
-    func bindViewModel(_ viewModel: Any) {
-        if let viewModel = viewModel as? FilterCollectionViewCellObject {
-            imageView.image = viewModel.image
-        }
+    func bindViewModel(_ viewModel: FilterCollectionViewCellObject) {
+        imageView.image = viewModel.image
     }
 
 }

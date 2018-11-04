@@ -8,7 +8,6 @@
 
 import Swinject
 import SwinjectStoryboard
-import IGListKit
 
 class FilterAssembly: Assembly {
 
@@ -20,8 +19,6 @@ class FilterAssembly: Assembly {
         container.storyboardInitCompleted(FilterViewController.self) { r, c in
             c.viewOutput = r.resolve(FilterViewOutput.self,
                                      argument: c as FilterViewController)
-            c.adapter = r.resolve(ListAdapter.self,
-                                  argument: c as FilterViewController)
         }
         
         container.register(FilterViewOutput.self) { (r, controller: FilterViewController) in
@@ -32,11 +29,6 @@ class FilterAssembly: Assembly {
             model.shareHelper = assembler.resolver.resolve(SharingHelper.self,
                                                            argument: controller as UIViewController)
             return model
-        }
-        
-        container.register(ListAdapter.self) { (r, controller: FilterViewController) in
-            ListAdapter(updater: ListAdapterUpdater(),
-                        viewController: controller)
         }
         
         container.register(FilterObjectFactory.self) { r in

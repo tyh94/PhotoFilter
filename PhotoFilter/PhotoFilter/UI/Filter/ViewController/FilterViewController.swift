@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import IGListKit
+import UPCarouselFlowLayout
 
-class FilterViewController: UIViewController, FilterViewInput, ListAdapterDataSource, ListSingleSectionControllerDelegate {
+class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var viewOutput: FilterViewOutput!
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UPCarouselFlowLayout!
     
-    var adapter: ListAdapter!
     var cellObjects = [FilterCollectionViewCellObject]()
     
     // MARK: Life cycle
@@ -39,17 +39,18 @@ class FilterViewController: UIViewController, FilterViewInput, ListAdapterDataSo
     }
     
     private func configureCollectionView() {
+        flowLayout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: 150, height: 150)
         let idenitfier = String(describing: FilterCollectionViewCell.self)
         let nib = UINib(nibName: idenitfier,
                         bundle: Bundle.init(for: FilterCollectionViewCell.self))
         collectionView.register(nib,
                                 forCellWithReuseIdentifier: idenitfier)
-        adapter.collectionView = collectionView
-        adapter.dataSource = self
     }
     
     @objc private func shareTapped() {
-        viewOutput.shareCurrentImage()
+        viewOutput.shareCurrentImage(barButtonItem: navigationItem.rightBarButtonItem!)
     }
     
     // MARK: FilterViewInput
@@ -60,39 +61,42 @@ class FilterViewController: UIViewController, FilterViewInput, ListAdapterDataSo
     
     func update(cellObjects: [FilterCollectionViewCellObject]) {
         self.cellObjects = cellObjects
-        adapter.reloadData(completion: nil)
+        collectionView.reloadData()
     }
     
-    // MARK: ListAdapterDataSource
+    // MARK: UICollectionViewDataSource
     
-    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return cellObjects
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        let section =  ListSingleSectionController(nibName: String(describing: FilterCollectionViewCell.self),
-                                                   bundle: nil,
-                                                   configureBlock: { (cellObject, cell) in
-                                                    if let cell = cell as? FilterCollectionViewCell {
-                                                        cell.bindViewModel(cellObject)
-                                                    }
-                                                    
-        }) { (cellObject, contect) -> CGSize in
-            return CGSize(width: 150, height: 150)
-        }
-        section.selectionDelegate = self
-        return section
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cellObjects.count
     }
     
-    func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FilterCollectionViewCell.self), for: indexPath) as! FilterCollectionViewCell
+        cell.bindViewModel(cellObjects[indexPath.item])
+        return cell
     }
     
-    // MARK: ListSingleSectionControllerDelegate
+    // MARK: UICollectionViewDelegate
     
-    func didSelect(_ sectionController: ListSingleSectionController, with object: Any) {
-        if let object = object as? FilterCollectionViewCellObject {
-            viewOutput.didSelect(object: object)
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let object = cellObjects[indexPath.item]
+        viewOutput.didSelect(object: object)
+    }
+    
+    // MARK: UIScrollViewDelegate
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
+        var pageSide = layout.itemSize.width
+        pageSide += layout.minimumLineSpacing
+        let offset = scrollView.contentOffset.x
+        let currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+        let indexPath = IndexPath(item: currentPage, section: 0)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+        collectionView(collectionView, didSelectItemAt: indexPath)
     }
 }
