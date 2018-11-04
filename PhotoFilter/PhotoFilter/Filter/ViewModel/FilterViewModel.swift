@@ -8,6 +8,18 @@
 
 import UIKit
 
-class FilterViewModel: NSObject {
+class FilterViewModel: NSObject, FilterViewOutput {
+    
+    weak var viewInput: FilterViewInput!
+    var filteredImage: UIImage!
 
+    // MARK: FilterViewOutput
+    
+    func configure(image: UIImage) {
+        filteredImage = image
+    }
+    
+    func moduleWasLoaded() {
+        viewInput.setup(image: filteredImage)
+    }
 }

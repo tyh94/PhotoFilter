@@ -17,10 +17,9 @@ class MainRouter: NSObject {
     
     func openFilterModule(image: UIImage) {
         let filterController = getFilterController()
-        controller.present(filterController, animated: true, completion: {
-            
-            filterController.imageView.image = image
-        })
+        filterController.viewOutput.configure(image: image)
+        controller.navigationController?.pushViewController(filterController,
+                                                            animated: true)
     }
     
     // Private

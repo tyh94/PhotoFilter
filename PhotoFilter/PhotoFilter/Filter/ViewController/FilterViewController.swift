@@ -8,12 +8,22 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
+class FilterViewController: UIViewController, FilterViewInput {
+    
+    var viewOutput: FilterViewOutput!
 
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = NSLocalizedString("FILTER_NAVIGATION_TITLE", comment: "")
+        viewOutput.moduleWasLoaded()
+    }
+    
+    // MARK: FilterViewInput
+    
+    func setup(image: UIImage) {
+        imageView.image = image
     }
     
 }

@@ -15,5 +15,15 @@ class FilterAssembly: Assembly {
     
     func assemble(container: Container) {
         
+        container.storyboardInitCompleted(FilterViewController.self) { r, c in
+            c.viewOutput = r.resolve(FilterViewOutput.self,
+                                     argument: c as FilterViewController)
+        }
+        
+        container.register(FilterViewOutput.self) { (r, controller: FilterViewController) in
+            let model = FilterViewModel()
+            model.viewInput = controller
+            return model
+        }
     }
 }

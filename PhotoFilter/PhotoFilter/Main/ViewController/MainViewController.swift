@@ -14,6 +14,8 @@ class MainViewController: UIViewController, MainViewInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = NSLocalizedString("MAIN_NAVIGATION_TITLE",
+                                  comment: "")
     }
 
     // MARK: MainViewInput
