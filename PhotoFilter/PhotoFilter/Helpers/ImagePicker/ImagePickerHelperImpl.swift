@@ -18,7 +18,6 @@ class ImagePickerHelperImpl: NSObject, ImagePickerHelper, UIImagePickerControlle
         self.completion = completion
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .camera
-//        imagePicker.mediaTypes = [kUTTypeImage]
         imagePicker.delegate = self
         controller.present(imagePicker, animated: true, completion: nil)
     }
@@ -33,7 +32,8 @@ class ImagePickerHelperImpl: NSObject, ImagePickerHelper, UIImagePickerControlle
     
     // MARK: UIImagePickerControllerDelegate
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true) {
             let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
             self.completion(pickedImage)

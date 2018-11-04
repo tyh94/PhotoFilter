@@ -77,7 +77,20 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FilterCollectionViewCell.self), for: indexPath) as! FilterCollectionViewCell
         cell.bindViewModel(cellObjects[indexPath.item])
+        viewOutput.getImage(index: indexPath.item) { (image) -> (Void) in
+            cell.imageView.image = image
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        if let cell = cell as? FilterCollectionViewCell {
+            viewOutput.getImage(index: indexPath.item) { (image) -> (Void) in
+                cell.imageView.image = image
+            }
+        }
     }
     
     // MARK: UICollectionViewDelegate

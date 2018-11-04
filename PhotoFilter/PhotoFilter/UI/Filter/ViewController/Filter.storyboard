@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90v-Dq-nWF">
-                                <rect key="frame" x="0.0" y="36" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="36" width="375" height="449"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-YP-D2U">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="501" width="375" height="150"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-0j-7vP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -51,7 +51,7 @@
                             <constraint firstItem="GgE-YP-D2U" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="Ncy-JO-P6M"/>
                             <constraint firstItem="GgE-YP-D2U" firstAttribute="top" secondItem="90v-Dq-nWF" secondAttribute="bottom" constant="16" id="Udm-GN-wd1"/>
                             <constraint firstItem="90v-Dq-nWF" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="ZxW-gu-P61"/>
-                            <constraint firstItem="6il-wC-KUR" firstAttribute="bottom" secondItem="GgE-YP-D2U" secondAttribute="bottom" id="aHx-oy-PjV"/>
+                            <constraint firstItem="6il-wC-KUR" firstAttribute="bottom" secondItem="GgE-YP-D2U" secondAttribute="bottom" constant="16" id="aHx-oy-PjV"/>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="GgE-YP-D2U" secondAttribute="trailing" id="lIY-rE-3OC"/>
                             <constraint firstItem="90v-Dq-nWF" firstAttribute="top" secondItem="6il-wC-KUR" secondAttribute="top" constant="16" id="qVv-rR-RXu"/>
                         </constraints>

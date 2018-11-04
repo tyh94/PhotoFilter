@@ -21,6 +21,7 @@ class HelperAssembly: Assembly {
         }
         
         container.register(FilterBuilder.self) { _ in FilterBuilderImpl() }
+        .inObjectScope(.container)
         
         container.register(SharingHelper.self) { (resolver, controller: UIViewController) in
             let helper = SharingHelperImpl()

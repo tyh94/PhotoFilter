@@ -10,6 +10,6 @@ import UIKit
 
 protocol FilterObjectFactory {
     
-    func cellObjects(for image: UIImage) -> [FilterCollectionViewCellObject]
+    func cellObjects() -> [FilterCollectionViewCellObject]
 
 }

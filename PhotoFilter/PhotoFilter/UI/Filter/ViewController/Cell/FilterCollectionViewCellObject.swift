@@ -13,11 +13,9 @@ class FilterCollectionViewCellObject: NSObject {
     var type: FilterType!
     var image: UIImage!
     
-    init(type: FilterType,
-         image: UIImage) {
+    init(type: FilterType) {
         super.init()
         self.type = type
-        self.image = image
     }
     
 }

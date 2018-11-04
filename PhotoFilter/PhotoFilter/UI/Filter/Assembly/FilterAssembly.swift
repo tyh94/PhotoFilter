@@ -31,10 +31,6 @@ class FilterAssembly: Assembly {
             return model
         }
         
-        container.register(FilterObjectFactory.self) { r in
-            let factory = FilterObjectFactoryImpl()
-            factory.builder = assembler.resolver.resolve(FilterBuilder.self)
-            return factory
-        }
+        container.register(FilterObjectFactory.self) { _ in FilterObjectFactoryImpl() }
     }
 }

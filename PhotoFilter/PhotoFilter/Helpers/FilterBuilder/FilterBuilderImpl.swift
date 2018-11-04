@@ -11,6 +11,7 @@ import UIKit
 class FilterBuilderImpl: NSObject, FilterBuilder {
 
     // MARK: FilterFactory
+    
     func buildFilter(type: FilterType,
                      inputImage: UIImage) -> CIFilter? {
         switch type {
