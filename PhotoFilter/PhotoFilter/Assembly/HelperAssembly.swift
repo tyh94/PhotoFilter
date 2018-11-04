@@ -19,6 +19,8 @@ class HelperAssembly: Assembly {
             helper.controller = controller
             return helper
         }
+        
+        container.register(FilterBuilder.self) { _ in FilterBuilderImpl() }
     }
     
 }

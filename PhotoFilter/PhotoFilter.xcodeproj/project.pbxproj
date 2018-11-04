@@ -10,6 +10,13 @@
 		4911226C218EAC04003683FD /* FilterViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911226B218EAC04003683FD /* FilterViewOutput.swift */; };
 		4911226E218EAC62003683FD /* FilterViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911226D218EAC62003683FD /* FilterViewInput.swift */; };
 		49112272218EAFAF003683FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49112274218EAFAF003683FD /* Localizable.strings */; };
+		4911227B218EB738003683FD /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49112279218EB738003683FD /* FilterCollectionViewCell.swift */; };
+		4911227C218EB738003683FD /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4911227A218EB738003683FD /* FilterCollectionViewCell.xib */; };
+		4911227E218EB75C003683FD /* FilterCollectionViewCellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911227D218EB75C003683FD /* FilterCollectionViewCellObject.swift */; };
+		49112282218EB78A003683FD /* FilterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49112281218EB78A003683FD /* FilterBuilder.swift */; };
+		49112284218EB792003683FD /* FilterBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49112283218EB792003683FD /* FilterBuilderImpl.swift */; };
+		49112288218EBB10003683FD /* FilterObjectFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49112286218EBB10003683FD /* FilterObjectFactoryImpl.swift */; };
+		49112289218EBB10003683FD /* FilterObjectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49112287218EBB10003683FD /* FilterObjectFactory.swift */; };
 		49155D82218DF2E2005AA431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155D81218DF2E2005AA431 /* AppDelegate.swift */; };
 		49155D84218DF2E2005AA431 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49155D83218DF2E2005AA431 /* MainViewController.swift */; };
 		49155D87218DF2E2005AA431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49155D85218DF2E2005AA431 /* Main.storyboard */; };
@@ -50,6 +57,13 @@
 		49112273218EAFAF003683FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		49112275218EAFC3003683FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		49112276218EAFC9003683FD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		49112279218EB738003683FD /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		4911227A218EB738003683FD /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
+		4911227D218EB75C003683FD /* FilterCollectionViewCellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCellObject.swift; sourceTree = "<group>"; };
+		49112281218EB78A003683FD /* FilterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBuilder.swift; sourceTree = "<group>"; };
+		49112283218EB792003683FD /* FilterBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBuilderImpl.swift; sourceTree = "<group>"; };
+		49112286218EBB10003683FD /* FilterObjectFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterObjectFactoryImpl.swift; sourceTree = "<group>"; };
+		49112287218EBB10003683FD /* FilterObjectFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterObjectFactory.swift; sourceTree = "<group>"; };
 		49155D7E218DF2E2005AA431 /* PhotoFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49155D81218DF2E2005AA431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49155D83218DF2E2005AA431 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +133,52 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		49112277218EB669003683FD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				49155DBA218DFEA6005AA431 /* Filter */,
+				49155DA1218DF318005AA431 /* Main */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		49112278218EB711003683FD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				49112279218EB738003683FD /* FilterCollectionViewCell.swift */,
+				4911227A218EB738003683FD /* FilterCollectionViewCell.xib */,
+				4911227D218EB75C003683FD /* FilterCollectionViewCellObject.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		49112280218EB77E003683FD /* FilterBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				49112281218EB78A003683FD /* FilterBuilder.swift */,
+				49112283218EB792003683FD /* FilterBuilderImpl.swift */,
+			);
+			path = FilterBuilder;
+			sourceTree = "<group>";
+		};
+		49112285218EBB10003683FD /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				49112287218EBB10003683FD /* FilterObjectFactory.swift */,
+				49112286218EBB10003683FD /* FilterObjectFactoryImpl.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		4911228A218EBD41003683FD /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				49155DB6218DF6E7005AA431 /* ImagePickerHelper.swift */,
+				49155DB8218DF6F5005AA431 /* ImagePickerHelperImpl.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		49155D75218DF2E2005AA431 = {
 			isa = PBXGroup;
 			children = (
@@ -145,13 +205,12 @@
 				49155D81218DF2E2005AA431 /* AppDelegate.swift */,
 				49155DB2218DF6C7005AA431 /* Assembly */,
 				49155D88218DF2E4005AA431 /* Assets.xcassets */,
-				49155DBA218DFEA6005AA431 /* Filter */,
 				49155DB5218DF6DA005AA431 /* Helpers */,
 				49155D8D218DF2E4005AA431 /* Info.plist */,
 				49155D8A218DF2E4005AA431 /* LaunchScreen.storyboard */,
-				49155DA1218DF318005AA431 /* Main */,
 				49155D85218DF2E2005AA431 /* Main.storyboard */,
 				4911226F218EAF49003683FD /* Supporting Files */,
+				49112277218EB669003683FD /* UI */,
 			);
 			path = PhotoFilter;
 			sourceTree = "<group>";
@@ -214,8 +273,8 @@
 		49155DB5218DF6DA005AA431 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				49155DB6218DF6E7005AA431 /* ImagePickerHelper.swift */,
-				49155DB8218DF6F5005AA431 /* ImagePickerHelperImpl.swift */,
+				49112280218EB77E003683FD /* FilterBuilder */,
+				4911228A218EBD41003683FD /* ImagePicker */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -223,6 +282,7 @@
 		49155DBA218DFEA6005AA431 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				49112285218EBB10003683FD /* Factory */,
 				49155DBD218DFEE7005AA431 /* Assembly */,
 				49155DC0218DFF2C005AA431 /* ViewController */,
 				49155DC3218DFF45005AA431 /* ViewModel */,
@@ -241,6 +301,7 @@
 		49155DC0218DFF2C005AA431 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				49112278218EB711003683FD /* Cell */,
 				49155DC4218E0033005AA431 /* Filter.storyboard */,
 				49155DBE218DFF24005AA431 /* FilterViewController.swift */,
 				4911226D218EAC62003683FD /* FilterViewInput.swift */,
@@ -355,6 +416,7 @@
 				49155D8C218DF2E4005AA431 /* LaunchScreen.storyboard in Resources */,
 				49155D89218DF2E4005AA431 /* Assets.xcassets in Resources */,
 				49155DC5218E0033005AA431 /* Filter.storyboard in Resources */,
+				4911227C218EB738003683FD /* FilterCollectionViewCell.xib in Resources */,
 				49155D87218DF2E2005AA431 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +440,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoFilter/Pods-PhotoFilter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
@@ -385,6 +448,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
 			);
@@ -447,18 +511,24 @@
 				49155DC2218DFF41005AA431 /* FilterViewModel.swift in Sources */,
 				4911226E218EAC62003683FD /* FilterViewInput.swift in Sources */,
 				49155DB1218DF53C005AA431 /* Main+SwinjectStoryboard.swift in Sources */,
+				4911227E218EB75C003683FD /* FilterCollectionViewCellObject.swift in Sources */,
 				49155DB9218DF6F5005AA431 /* ImagePickerHelperImpl.swift in Sources */,
 				49155D84218DF2E2005AA431 /* MainViewController.swift in Sources */,
 				49155DB4218DF6D5005AA431 /* HelperAssembly.swift in Sources */,
 				49155DB7218DF6E7005AA431 /* ImagePickerHelper.swift in Sources */,
 				49155DAC218DF479005AA431 /* MainViewInput.swift in Sources */,
 				49155DA8218DF3F4005AA431 /* MainViewOutput.swift in Sources */,
+				4911227B218EB738003683FD /* FilterCollectionViewCell.swift in Sources */,
+				49112288218EBB10003683FD /* FilterObjectFactoryImpl.swift in Sources */,
+				49112289218EBB10003683FD /* FilterObjectFactory.swift in Sources */,
 				49155DBF218DFF24005AA431 /* FilterViewController.swift in Sources */,
+				49112282218EB78A003683FD /* FilterBuilder.swift in Sources */,
 				49155DA4218DF3BF005AA431 /* MainAssembly.swift in Sources */,
 				49155D82218DF2E2005AA431 /* AppDelegate.swift in Sources */,
 				49155DBC218DFEC5005AA431 /* FilterAssembly.swift in Sources */,
 				49155DA6218DF3E6005AA431 /* MainViewModel.swift in Sources */,
 				4911226C218EAC04003683FD /* FilterViewOutput.swift in Sources */,
+				49112284218EB792003683FD /* FilterBuilderImpl.swift in Sources */,
 				49155DAA218DF40A005AA431 /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

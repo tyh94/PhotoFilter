@@ -6,4 +6,5 @@
   Copyright © 2018 Татьяна. All rights reserved.
 */
 
-"MAIN_NAVIGATION_TITLE" = "Добавьте фильтры";
+"MAIN_NAVIGATION_TITLE" = "Добавьте фото";
+"FILTER_NAVIGATION_TITLE" = "Добавьте фильтры";

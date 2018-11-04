@@ -6,6 +6,7 @@ target 'PhotoFilter' do
   use_frameworks!
   pod 'Swinject'
   pod 'SwinjectStoryboard'
+  pod 'IGListKit'
 
   # Pods for PhotoFilter
 
