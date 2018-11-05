@@ -22,7 +22,6 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     
     var lastPoint = CGPoint.zero
     var lastScale = CGFloat(1.0)
-    var ignorePan = false
     
     // MARK: Life cycle
     
@@ -146,10 +145,6 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
             }
             
         case .changed: do {
-            if ignorePan {
-                ignorePan = false
-                return
-            }
             var point = gesture.location(in: imageView)
             point.x -= lastPoint.x
             point.y -= lastPoint.y
@@ -160,28 +155,6 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
             }
             
         case .ended, .failed, .cancelled: do {
-//            var transform = imageView.layer.affineTransform()
-//            let x = imageView.layer.frame.origin.x
-//            let y = imageView.layer.frame.origin.y
-//            let width = imageView.layer.frame.size.width
-//            let height = imageView.layer.frame.size.height
-//            let viewWidth = previewView.frame.size.width
-//            let viewHeight = previewView.frame.size.height
-//
-//            if x > 0 {
-//                transform.tx -= x
-//            } else if (x + width < viewWidth) {
-//                transform.tx += viewWidth - (width + x);
-//            }
-//            if y > 0 {
-//                transform.ty -= y
-//            } else if (y + height < viewHeight) {
-//                transform.ty += viewHeight - (height + y);
-//            }
-//
-//            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
-//                self.imageView.layer.setAffineTransform(transform)
-//            })
             }
             
         default: break
@@ -197,9 +170,6 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
             
         case .changed: do {
             let scale = gesture.scale / lastScale
-            if scale == 1 {
-                ignorePan = true
-            }
             let playerTransform = imageView.layer.affineTransform()
             let transformScale = playerTransform.scaledBy(x: scale, y: scale)
             imageView.layer.setAffineTransform(transformScale)
@@ -207,18 +177,6 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
             }
             
         case .ended, .failed, .cancelled: do {
-//            var transform = imageView.layer.affineTransform()
-//            let width = imageView.layer.frame.size.width
-//            let viewWidth = previewView.frame.size.width
-//
-//            if width < viewWidth {
-//                let scale = previewView.frame.size.width / width
-//                transform = transform.scaledBy(x: scale, y: scale)
-//            }
-//
-//            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
-//                self.imageView.layer.setAffineTransform(transform)
-//            })
             }
             
         default: break
