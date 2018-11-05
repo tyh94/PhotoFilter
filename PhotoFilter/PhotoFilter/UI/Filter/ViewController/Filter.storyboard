@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4u4-5t-SZS">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,42 @@
             <objects>
                 <viewController storyboardIdentifier="FilterViewController" id="4u4-5t-SZS" customClass="FilterViewController" customModule="PhotoFilter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KpM-ob-pTY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90v-Dq-nWF">
-                                <rect key="frame" x="0.0" y="36" width="375" height="449"/>
-                            </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nso-nX-CEY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="652"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qo4-RS-AvG">
+                                        <rect key="frame" x="0.0" y="16" width="414" height="620"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90v-Dq-nWF">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
+                                                <gestureRecognizers/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="backgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="90v-Dq-nWF" firstAttribute="top" secondItem="qo4-RS-AvG" secondAttribute="top" id="UoT-Ge-rXN"/>
+                                            <constraint firstItem="90v-Dq-nWF" firstAttribute="leading" secondItem="qo4-RS-AvG" secondAttribute="leading" id="cV0-NW-Wi8"/>
+                                            <constraint firstAttribute="bottom" secondItem="90v-Dq-nWF" secondAttribute="bottom" id="orM-jP-z8k"/>
+                                            <constraint firstAttribute="trailing" secondItem="90v-Dq-nWF" secondAttribute="trailing" id="xWq-nk-ViD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qo4-RS-AvG" secondAttribute="bottom" constant="16" id="Dpe-h9-qwq"/>
+                                    <constraint firstAttribute="trailing" secondItem="qo4-RS-AvG" secondAttribute="trailing" id="M1t-mq-rWY"/>
+                                    <constraint firstItem="qo4-RS-AvG" firstAttribute="top" secondItem="Nso-nX-CEY" secondAttribute="top" constant="16" id="fO9-dG-rK5"/>
+                                    <constraint firstItem="qo4-RS-AvG" firstAttribute="leading" secondItem="Nso-nX-CEY" secondAttribute="leading" id="qVR-ag-HFy"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-YP-D2U">
-                                <rect key="frame" x="0.0" y="501" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="696" width="414" height="150"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eNB-0j-7vP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <collectionViewLayout key="collectionViewLayout" id="ftQ-e8-8kN" customClass="UPCarouselFlowLayout" customModule="UPCarouselFlowLayout"/>
                                         <cells/>
@@ -35,7 +60,7 @@
                                         </connections>
                                     </collectionView>
                                     <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kxj-Lf-eYK" customClass="FrameView" customModule="PhotoFilter" customModuleProvider="target">
-                                        <rect key="frame" x="107.5" y="-5" width="160" height="160"/>
+                                        <rect key="frame" x="127" y="-5" width="160" height="160"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Kxj-Lf-eYK" secondAttribute="height" multiplier="1:1" id="gQG-Gm-0pF"/>
@@ -56,27 +81,28 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="90v-Dq-nWF" secondAttribute="trailing" id="08W-YO-Rd7"/>
+                            <constraint firstItem="GgE-YP-D2U" firstAttribute="top" secondItem="Nso-nX-CEY" secondAttribute="bottom" id="2kt-uF-k4j"/>
                             <constraint firstItem="GgE-YP-D2U" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="Ncy-JO-P6M"/>
-                            <constraint firstItem="GgE-YP-D2U" firstAttribute="top" secondItem="90v-Dq-nWF" secondAttribute="bottom" constant="16" id="Udm-GN-wd1"/>
-                            <constraint firstItem="90v-Dq-nWF" firstAttribute="leading" secondItem="6il-wC-KUR" secondAttribute="leading" id="ZxW-gu-P61"/>
+                            <constraint firstItem="Nso-nX-CEY" firstAttribute="top" secondItem="6il-wC-KUR" secondAttribute="top" id="VJe-tp-ykX"/>
+                            <constraint firstAttribute="trailing" secondItem="Nso-nX-CEY" secondAttribute="trailing" id="YMO-P9-86O"/>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="bottom" secondItem="GgE-YP-D2U" secondAttribute="bottom" constant="16" id="aHx-oy-PjV"/>
                             <constraint firstItem="6il-wC-KUR" firstAttribute="trailing" secondItem="GgE-YP-D2U" secondAttribute="trailing" id="lIY-rE-3OC"/>
-                            <constraint firstItem="90v-Dq-nWF" firstAttribute="top" secondItem="6il-wC-KUR" secondAttribute="top" constant="16" id="qVv-rR-RXu"/>
+                            <constraint firstItem="Nso-nX-CEY" firstAttribute="leading" secondItem="KpM-ob-pTY" secondAttribute="leading" id="sQw-Cu-1Gl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6il-wC-KUR"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="eNB-0j-7vP" id="v32-uo-tsO"/>
                         <outlet property="flowLayout" destination="ftQ-e8-8kN" id="ouE-aC-oQQ"/>
                         <outlet property="imageView" destination="90v-Dq-nWF" id="xcp-v7-BQa"/>
+                        <outlet property="previewView" destination="qo4-RS-AvG" id="jet-Md-DWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6L6-NW-ePW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160.80000000000001" y="88.605697151424295"/>
+            <point key="canvasLocation" x="159.42028985507247" y="88.392857142857139"/>
         </scene>
     </scenes>
     <resources>

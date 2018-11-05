@@ -84,10 +84,19 @@
                     <connections>
                         <outlet property="openCameraButton" destination="ypz-Ux-Be4" id="Hbr-vg-khi"/>
                         <outlet property="openGalleryButton" destination="hOs-Vd-9PD" id="Icx-0t-pRU"/>
+                        <segue destination="bdr-vi-jlo" kind="show" id="wA6-We-15E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="fM7-xb-PSv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filter" id="bdr-vi-jlo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKu-Cl-OuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1266" y="63"/>
         </scene>
     </scenes>
     <resources>
