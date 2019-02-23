@@ -10,7 +10,7 @@ import UIKit
 
 class FilterViewModel: NSObject, FilterViewOutput {
     
-    weak var viewInput: FilterViewInput!
+    weak var viewInput: FilterViewInput?
     var factory: FilterObjectFactory!
     var builder: FilterBuilder!
     var shareHelper: SharingHelper!
@@ -60,14 +60,14 @@ class FilterViewModel: NSObject, FilterViewOutput {
     }
     
     func moduleWasLoaded() {
-        viewInput.setup(image: originalImage)
+        viewInput?.setup(image: originalImage)
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             let cellObjects = self.factory.cellObjects()
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.cellObjects = cellObjects
-                self.viewInput.update(cellObjects: cellObjects)
+                self.viewInput?.update(cellObjects: cellObjects)
             }
         }
     }
@@ -79,15 +79,18 @@ class FilterViewModel: NSObject, FilterViewOutput {
             if let image = createFilteredImage(context: context,
                                                filter: filter) {
                 filteredImage = image
-                viewInput.setup(image: image)
+                viewInput?.update(image: image)
             }
         } else {
-            viewInput.setup(image: originalImage)
+            viewInput?.update(image: originalImage)
         }
     }
     
     func shareCurrentImage(barButtonItem: UIBarButtonItem) {
-        shareHelper.share(image: filteredImage,
+        guard let rect = viewInput?.croppedImageRect() else { return }
+        let croppedCGImage = filteredImage.cgImage?.cropping(to: rect)
+        let croppedImage = UIImage(cgImage: croppedCGImage!)
+        shareHelper.share(image: croppedImage,
                           barButtonItem: barButtonItem)
     }
     

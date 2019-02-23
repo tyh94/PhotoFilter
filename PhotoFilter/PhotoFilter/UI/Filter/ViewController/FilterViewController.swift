@@ -9,14 +9,17 @@
 import UIKit
 import UPCarouselFlowLayout
 
-class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
+class FilterViewController: UIViewController, FilterViewInput, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var viewOutput: FilterViewOutput!
-
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UPCarouselFlowLayout!
-    @IBOutlet weak var previewView: UIView!
     
     var cellObjects = [FilterCollectionViewCellObject]()
     
@@ -27,12 +30,6 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let panGR = UIPanGestureRecognizer(target: self, action: #selector(panHandle(_:)))
-        panGR.delegate = self
-        previewView.addGestureRecognizer(panGR)
-        let pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(pinchHandle(_:)))
-        pinchGR.delegate = self
-        previewView.addGestureRecognizer(pinchGR)
         configureNavigationBar()
         configureCollectionView()
         viewOutput.moduleWasLoaded()
@@ -64,9 +61,33 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
         viewOutput.shareCurrentImage(barButtonItem: navigationItem.rightBarButtonItem!)
     }
     
+    func setImageToCrop(image: UIImage){
+        imageView.image = image
+        imageViewWidth.constant = image.size.width
+        imageViewHeight.constant = image.size.height
+        let scaleHeight = scrollView.frame.size.width/image.size.width
+        let scaleWidth = scrollView.frame.size.height/image.size.height
+        let maxScale = max(scaleWidth, scaleHeight)
+        scrollView.minimumZoomScale = maxScale
+        scrollView.zoomScale = maxScale
+    }
+    
+    func croppedImageRect() -> CGRect {
+        let scale = 1 / scrollView.zoomScale
+        let x = scrollView.contentOffset.x * scale
+        let y = scrollView.contentOffset.y * scale
+        let width = scrollView.frame.size.width * scale
+        let height = scrollView.frame.size.height * scale
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
     // MARK: FilterViewInput
     
     func setup(image: UIImage) {
+        setImageToCrop(image: image)
+    }
+    
+    func update(image: UIImage) {
         imageView.image = image
     }
     
@@ -121,11 +142,22 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
                                         animated: true)
         }
     }
-    
-    // MARK: UIScrollViewDelegate
+
+}
+
+// MARK: UIScrollViewDelegate
+extension FilterViewController: UIScrollViewDelegate {
+
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        if scrollView == self.scrollView {
+            return imageView
+        }
+        return nil
+    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
+        if scrollView == self.scrollView { return }
+        let layout = collectionView.collectionViewLayout as! UPCarouselFlowLayout
         var pageSide = layout.itemSize.width
         pageSide += layout.minimumLineSpacing
         let offset = scrollView.contentOffset.x
@@ -135,61 +167,4 @@ class FilterViewController: UIViewController, FilterViewInput, UIScrollViewDeleg
         collectionView(collectionView, didSelectItemAt: indexPath)
     }
     
-    // MARK: Gesture recognizers
-    
-    @IBAction func panHandle(_ sender: Any) {
-        let gesture = sender as! UIPanGestureRecognizer
-        switch gesture.state {
-        case .began: do {
-            lastPoint = gesture.location(in: imageView)
-            }
-            
-        case .changed: do {
-            var point = gesture.location(in: imageView)
-            point.x -= lastPoint.x
-            point.y -= lastPoint.y
-            let playerTransform = imageView.layer.affineTransform()
-            let transform = playerTransform.translatedBy(x: point.x, y: point.y)
-            imageView.layer.setAffineTransform(transform)
-            lastPoint = gesture.location(in: imageView)
-            }
-            
-        case .ended, .failed, .cancelled: do {
-            }
-            
-        default: break
-        }
-    }
-    
-    @IBAction func pinchHandle(_ sender: Any) {
-        let gesture = sender as! UIPinchGestureRecognizer
-        switch gesture.state {
-        case .began: do {
-            lastScale = gesture.scale
-            }
-            
-        case .changed: do {
-            let scale = gesture.scale / lastScale
-            let playerTransform = imageView.layer.affineTransform()
-            let transformScale = playerTransform.scaledBy(x: scale, y: scale)
-            imageView.layer.setAffineTransform(transformScale)
-            lastScale = gesture.scale
-            }
-            
-        case .ended, .failed, .cancelled: do {
-            }
-            
-        default: break
-        }
-    }
-    
-    // MARK: UIGestureRecognizerDelegate
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
-                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return ((gestureRecognizer is UIPanGestureRecognizer) &&
-            (otherGestureRecognizer is UIPinchGestureRecognizer)) ||
-            ((gestureRecognizer is UIPinchGestureRecognizer) &&
-                (otherGestureRecognizer is UIPanGestureRecognizer))
-    }
 }
