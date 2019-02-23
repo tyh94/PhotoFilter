@@ -12,5 +12,10 @@ protocol FilterViewInput: AnyObject {
     
     func setup(image: UIImage)
     
+    func update(image: UIImage)
+    
     func update(cellObjects: [FilterCollectionViewCellObject])
+    
+    func croppedImageRect() -> CGRect
+    
 }
